@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <section id = 'cards'></section>
+        <section id = 'context' onclick="hidePic()"></section>
+    </div>
+    <script>
+        let arrCards = [
+            {
+                pic: 'red.jpg',
+                name: 'Костел',
+                text: 'Костёл святого Симеона и святой Елены (белор. Касцёл святога Сымона і святой Алены, польск. Kościół św. Szymona i Heleny), часто называемый также Красным костёлом — наиболее известный католический храм Минска.' 
+            },
+            {
+                pic: 'troi.jpg',
+                name: 'Троицкое',
+                text: 'Тро́ицкое предме́стье — исторический район города Минска, расположенный в северо-восточной части исторического центра на левом берегу реки Свислочь. Некогда являлся торгово-административным центром столицы Республики Беларусь.'
+            },
+            {
+                pic: 'mir.jpg',
+                name: 'Мир',
+                text: 'Ми́рский за́мок, за́мково-па́рковый ко́мплекс «Мир» — оборонительное укрепление и резиденция в городском посёлке Мир Кореличского района Гродненской области Белоруссии. Памятник архитектуры, внесён в список Всемирного наследия ЮНЕСКО. '
+            },
+            
+        ];
+        let n = '';
+
+        for(i = 0; i < arrCards.length; i ++){
+
+            n +=
+            `<div class="card" onclick="showPic(${i})">
+                <img  src='im/${arrCards[i].pic}' alt="">
+                <h2>${arrCards[i].name}</h2>
+            </div>`;
+            cards.innerHTML = n;
+            
+        }
+        function showPic(num){
+            context.innerHTML = 
+            `<div class="context_pic">
+            <img src="im/${arrCards[num].pic}" alt="">
+            </div>
+            <div class="context_text">
+            <p>${arrCards[num].text}</p>
+            </div>`;
+            if(context.style.display = 'none') context.style.display = 'flex';
+            
+        }
+        function hidePic(){
+            context.style.display = 'none';
+        }
+        
+
+
+
+    </script>
+    
+
+    
+</body>
+</html>
